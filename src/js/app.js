@@ -41,12 +41,36 @@ function render(variables = {}) {
           <h2>${variables.role}</h2>
           <h3>${variables.city}, ${variables.country}</h3>
           <ul class= ${variables.socialMediaPosition}>
-            <li><a href="https://twitter.com/${
-              variables.twitter == null ? "4GeeksAcademy" : variables.twitter
-            }"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/Adriela23"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/adriela-l%C3%B3pez-paniagua-8634b6195/"><i class="fa-brands fa-linkedin"></i></a></li>
-            <li><a href="https://www.instagram.com/adri___ela/"><i class="fab fa-instagram"></i></a></li>
+            <li>
+              <a href="https://twitter.com/${
+                variables.twitter == null ? "4GeeksAcademy" : variables.twitter
+              }">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+            <a href="https://github.com/${
+              variables.github == null ? "4GeeksAcademy" : variables.github
+            }">
+            <i class="fab fa-github"></i>
+            </a>
+            </li>
+            <li>
+            <a href="https://www.linkedin.com/${
+              variables.linkedin == null ? "4GeeksAcademy" : variables.linkedin
+            }">
+            <i class="fa-brands fa-linkedin"></i>
+            </a>
+            </li>
+            <li>
+            <a href="https://www.instagram.com/${
+              variables.instagram == null
+                ? "4GeeksAcademy"
+                : variables.instagram
+            }">
+            <i class="fab fa-instagram"></i>
+            </a>
+            </li>
           </ul>
         </div>
     `;
@@ -68,7 +92,7 @@ window.onload = function() {
     socialMediaPosition: "position-left",
     // social media usernames
     twitter: null,
-    github: "alesanchezr",
+    github: null,
     linkedin: null,
     instagram: null,
     name: "Rick",
