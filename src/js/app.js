@@ -29,18 +29,24 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  let mediaPosition = `<div class="position-left"> </div>`;
+  if (variables.socialMediaPosition == "position-right")
+    mediaPosition = "<div class='position-right'> </div>";
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
-            ${cover}
+            ${cover} 
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${variables.name} ${variables.lastname}</h1>
+          <h2>${variables.role}</h2>
+          <h3>${variables.city}, ${variables.country}</h3>
+          <ul class= ${variables.socialMediaPosition}>
+            <li><a href="https://twitter.com/${
+              variables.twitter == null ? "4GeeksAcademy" : variables.twitter
+            }"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/Adriela23"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/adriela-l%C3%B3pez-paniagua-8634b6195/"><i class="fa-brands fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/adri___ela/"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -49,6 +55,7 @@ function render(variables = {}) {
 /**
  * Don't change any of the lines below, here is where we do the logic for the dropdowns
  */
+
 window.onload = function() {
   window.variables = {
     // if includeCover is true the algorithm should
@@ -64,11 +71,11 @@ window.onload = function() {
     github: "alesanchezr",
     linkedin: null,
     instagram: null,
-    name: null,
-    lastname: null,
-    role: null,
-    country: null,
-    city: null
+    name: "Rick",
+    lastname: "Sanchez",
+    role: "role",
+    country: "country",
+    city: "city"
   };
   render(window.variables); //render the card for the first time
 
